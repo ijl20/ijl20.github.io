@@ -1,0 +1,40 @@
+#!/bin/bash
+# Copy selected "Project Light" style assets from
+#
+#   https://github.com/cambridgeuniversity/Project-Light
+#
+# into a more compact directory structure for the Ucampas ucam2012 style
+# template.
+#
+# Option '-r' copies them back (upstream) to where they came from,
+# e.g. to prepare pull requests.
+#
+# Usage:
+#
+#   bash copy-assets
+#   bash copy-assets -r
+#
+set -e
+GIT_REPO=Project-Light.git
+if [ ! -d $GIT_REPO ] ; then
+    echo "$GIT_REPO not yet found."
+    read -p "Press enter to clone Project-Light from github into $GIT_REPO ..."
+    git clone git@github.com:cambridgeuniversity/Project-Light.git $GIT_REPO
+fi
+if [ "$1" == '-r' ] ; then
+    # copy from here back to $GIT_REPO
+    set -x
+    rsync -rvt js/  $GIT_REPO/javascripts
+    rsync -rvt img/ $GIT_REPO/images/interface
+    perl -pe 's|img/|../images/interface/|g' \
+	 full-stylesheet.css >$GIT_REPO/stylesheets/full-stylesheet.css
+else
+    # copy from $GIT_REPO to here
+    set -x
+    mkdir -p js img
+    #cp $GIT_REPO/{favicon.ico, apple-touch-icon.png} ../../
+    rsync -rvt $GIT_REPO/javascripts/ js
+    rsync -rvt $GIT_REPO/images/interface/ img
+    perl -pe 's|\.\./images/interface/|img/|g' \
+	 $GIT_REPO/stylesheets/full-stylesheet.css >full-stylesheet.css
+fi
