@@ -1,19 +1,18 @@
 ---
 layout: default
-title: Systems Group People
+title: Systems Research Group People
 ---
 
-<div class="blurb">
-	<h1>People #4</h1>
+<div>
 	{% for person in site.people %}
 		<div class="person">
 			<h2>{{ person.name }}</h2>
-      <div class="person_image">
+            <div class="person_image">
 				<img src="{{ person.image }}"/>
 			</div>
 			<div class="person_content">
 		    {{ person.content | markdownify }}
 			</div>
-    </div> <!-- /person -->
+        </div> <!-- /person -->
 	{% endfor %}
-</div><!-- /.blurb -->
+</div>
