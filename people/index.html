@@ -4,11 +4,16 @@ title: Systems Group People
 ---
 
 <div class="blurb">
-	<h1>People #3</h1>
+	<h1>People #4</h1>
 	{% for person in site.people %}
-		<h2>{{ person.name }}</h2>
-
-		<p>{{ person.content | markdownify }}</p>
-
+		<div class="person">
+			<h2>{{ person.name }}</h2>
+      <div class="person_image">
+				<img src="{{ person.image }}"/>
+			</div>
+			<div class="person_content">
+		    {{ person.content | markdownify }}
+			</div>
+    </div> <!-- /person -->
 	{% endfor %}
 </div><!-- /.blurb -->
