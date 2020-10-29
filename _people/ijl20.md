@@ -1,7 +1,7 @@
 ---
 name: Ian Lewis
+office: FE11
+phone: (3)31859
 ---
 
-Now is the time for all good men to come to the aid of the party.
-
-The quick brown fox jumps over the lazy dog.
+Ian Lewis is Director of the Adaptive Cities Programme in the Computer Laboratory. His research interests are the real-time collection and analysis of urban sensor data and the evolution of the intelligent Future City. Research themes include sensor networks, intelligent sensor design, real-time processing, prediction, planning and privacy. His PhD, from the Lab, was concerned with robust distributed parallel AI.
