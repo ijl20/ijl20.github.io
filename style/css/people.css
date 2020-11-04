@@ -1,0 +1,13 @@
+<!-- CSS style for the 'people/members' page -->
+
+.person_block {
+    width: 80%;
+}
+
+.person_img { 
+    display: inline-block;
+}
+
+.person_content {
+    display: inline_block;
+}
